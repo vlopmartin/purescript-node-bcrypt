@@ -8,7 +8,6 @@ import Test.Unit (TestSuite, test)
 import Test.Unit.Assert as Assert
 import Test.Unit.Console (TESTOUTPUT)
 import Test.Unit.Main (runTest)
-
 import Crypto.Bcrypt
 
 
@@ -30,7 +29,7 @@ suites = do
 
     Assert.expectFailure
       "password should not match hash"
-      (Assert.equal password hashed)
+      (Assert.equal (Hash password) hashed)
 
     shouldMatch <- compare hashed password
     Assert.assert "password hashed can be checked" shouldMatch

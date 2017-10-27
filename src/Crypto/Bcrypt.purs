@@ -1,26 +1,34 @@
 module Crypto.Bcrypt
-  ( hash
+  ( Hash(..)
+  , hash
   , compare
   ) where
 
+import Prelude (class Eq, class Show)
 import Control.Monad.Aff (Aff)
 import Control.Monad.Aff.Compat as Aff
+import Data.Newtype (class Newtype, unwrap, wrap)
+import Data.Functor (map)
 
 
-type Hash =
-  String
+newtype Hash =
+  Hash String
+
+derive instance newtypeHash :: Newtype Hash _
+derive newtype instance showHash :: Show Hash
+derive newtype instance eqHash :: Eq Hash
 
 
 foreign import _hash
   :: forall eff
    . Int
   -> String
-  -> Aff.EffFnAff eff Hash
+  -> Aff.EffFnAff eff String
 
 
 foreign import _compare
   :: forall eff
-   . Hash
+   . String
   -> String
   -> Aff.EffFnAff eff Boolean
 
@@ -36,8 +44,10 @@ for more information.
 https://www.npmjs.com/package/bcrypt#to-hash-a-password
 -}
 hash :: forall eff. Int -> String -> Aff eff Hash
-hash saltRounds password =
-  Aff.fromEffFnAff (_hash saltRounds password)
+hash saltRounds password = do
+  map wrap
+    (Aff.fromEffFnAff (_hash saltRounds password))
+
 
 
 {-| Compare a password to a BCrypt password hash.
@@ -49,4 +59,4 @@ https://www.npmjs.com/package/bcrypt#to-check-a-password
 -}
 compare :: forall eff. Hash -> String -> Aff eff Boolean
 compare hashed password =
-  Aff.fromEffFnAff (_compare hashed password)
+  Aff.fromEffFnAff (_compare (unwrap hashed) password)
