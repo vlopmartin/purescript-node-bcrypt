@@ -1,0 +1,18 @@
+{
+  "name": "purescript-bcrypt",
+  "version": "1.0.0",
+  "description": "Purescript wrapper for the BCrypt JS module",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^1.0.3"
+  },
+  "devDependencies": {
+    "bower": "^1.8.2",
+    "pulp": "^12.0.1",
+    "purescript": "^0.11.6"
+  }
+}
