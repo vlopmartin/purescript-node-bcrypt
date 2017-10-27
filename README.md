@@ -1,4 +1,4 @@
-# purescript-bcrypt
+# purescript-node-bcrypt
 
 [![CircleCI](https://circleci.com/gh/lpil/purescript-bcrypt.svg?style=shield)](https://circleci.com/gh/lpil/purescript-bcrypt)
 
