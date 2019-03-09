@@ -1,6 +1,6 @@
 # purescript-node-bcrypt
 
-[![CircleCI](https://circleci.com/gh/lpil/purescript-bcrypt.svg?style=shield)](https://circleci.com/gh/lpil/purescript-bcrypt)
+*Note: This is just a fork of [purescript-node-bcrypt](https://github.com/lpil/purescript-node-bcrypt) that should hopefully make it compatible with older versions of Purescript. Because I kinda needed that.*
 
 Purescript wrapper around Javascript [bcrypt](https://www.npmjs.com/package/bcrypt).
 
@@ -8,7 +8,7 @@ Purescript wrapper around Javascript [bcrypt](https://www.npmjs.com/package/bcry
 ## Usage
 
 1. Add `bcrypt` dependency in your `package.json`
-2. Add `purescript-bcrypt` dependency in your `bower.json`
+2. Add `purescript-node-bcrypt` dependency in your `bower.json`
 3. Hash some passwords :)
 
 
