@@ -8,11 +8,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^1.0.3"
+    "bcrypt": "^3.0.4"
   },
-  "devDependencies": {
-    "bower": "^1.8.2",
-    "pulp": "^12.0.1",
-    "purescript": "^0.11.6"
-  }
+  "devDependencies": {}
 }
